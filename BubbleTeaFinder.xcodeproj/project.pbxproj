@@ -67,6 +67,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10753E192516396B008FF167 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FE0EF98222FF3B2700D0800D /* AppDelegate.swift */,
+				FE0EF98422FF3B2700D0800D /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		10753E1A25163975008FF167 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE0EF98822FF3B2700D0800D /* Main.storyboard */,
+				FE0EF99022FF3B2800D0800D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		10753E1B25163983008FF167 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE0EF98622FF3B2700D0800D /* ViewController.swift */,
+				FEAFE6022300A0660058378D /* FilterViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		10753E1C25163992008FF167 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE0EF98E22FF3B2800D0800D /* Assets.xcassets */,
+				FE0EF99322FF3B2800D0800D /* Info.plist */,
+				FEAFE62623012AE00058378D /* attribution.txt */,
+				FEAFE62723012AE00058378D /* seed.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		10753E1D2516399C008FF167 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FEAFE5E923009E7B0058378D /* NSManagedObject */,
+				FEAFE6002300A03C0058378D /* CoreDataStack.swift */,
+				FE0EF98B22FF3B2700D0800D /* BubbleTeaFinder.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		FE0EF97622FF3B2700D0800D = {
 			isa = PBXGroup;
 			children = (
@@ -88,19 +136,11 @@
 		FE0EF98122FF3B2700D0800D /* BubbleTeaFinder */ = {
 			isa = PBXGroup;
 			children = (
-				FE0EF98222FF3B2700D0800D /* AppDelegate.swift */,
-				FE0EF98422FF3B2700D0800D /* SceneDelegate.swift */,
-				FE0EF98622FF3B2700D0800D /* ViewController.swift */,
-				FEAFE6022300A0660058378D /* FilterViewController.swift */,
-				FEAFE6002300A03C0058378D /* CoreDataStack.swift */,
-				FE0EF98E22FF3B2800D0800D /* Assets.xcassets */,
-				FE0EF98822FF3B2700D0800D /* Main.storyboard */,
-				FE0EF99022FF3B2800D0800D /* LaunchScreen.storyboard */,
-				FE0EF99322FF3B2800D0800D /* Info.plist */,
-				FEAFE62623012AE00058378D /* attribution.txt */,
-				FEAFE62723012AE00058378D /* seed.json */,
-				FE0EF98B22FF3B2700D0800D /* BubbleTeaFinder.xcdatamodeld */,
-				FEAFE5E923009E7B0058378D /* NSManagedObject */,
+				10753E1D2516399C008FF167 /* CoreData */,
+				10753E1C25163992008FF167 /* Resources */,
+				10753E1B25163983008FF167 /* Controllers */,
+				10753E1A25163975008FF167 /* Views */,
+				10753E192516396B008FF167 /* AppDelegate */,
 			);
 			path = BubbleTeaFinder;
 			sourceTree = "<group>";
@@ -356,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HMTQUL7LT8;
-				INFOPLIST_FILE = BubbleTeaFinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BubbleTeaFinder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HMTQUL7LT8;
-				INFOPLIST_FILE = BubbleTeaFinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BubbleTeaFinder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
