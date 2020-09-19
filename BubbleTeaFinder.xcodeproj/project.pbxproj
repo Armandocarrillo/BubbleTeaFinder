@@ -136,11 +136,11 @@
 		FE0EF98122FF3B2700D0800D /* BubbleTeaFinder */ = {
 			isa = PBXGroup;
 			children = (
+				10753E192516396B008FF167 /* AppDelegate */,
+				10753E1B25163983008FF167 /* Controllers */,
 				10753E1D2516399C008FF167 /* CoreData */,
 				10753E1C25163992008FF167 /* Resources */,
-				10753E1B25163983008FF167 /* Controllers */,
 				10753E1A25163975008FF167 /* Views */,
-				10753E192516396B008FF167 /* AppDelegate */,
 			);
 			path = BubbleTeaFinder;
 			sourceTree = "<group>";
@@ -150,14 +150,14 @@
 			children = (
 				FEAFE5EA23009EC10058378D /* Category+CoreDataClass.swift */,
 				FEAFE5EB23009EC10058378D /* Category+CoreDataProperties.swift */,
-				FEAFE5EC23009EC10058378D /* Venue+CoreDataClass.swift */,
-				FEAFE5ED23009EC10058378D /* Venue+CoreDataProperties.swift */,
 				FEAFE5EE23009EC10058378D /* Location+CoreDataClass.swift */,
 				FEAFE5EF23009EC10058378D /* Location+CoreDataProperties.swift */,
-				FEAFE5F023009EC10058378D /* Stats+CoreDataClass.swift */,
-				FEAFE5F123009EC10058378D /* Stats+CoreDataProperties.swift */,
 				FEAFE5F223009EC10058378D /* PriceInfo+CoreDataClass.swift */,
 				FEAFE5F323009EC10058378D /* PriceInfo+CoreDataProperties.swift */,
+				FEAFE5F023009EC10058378D /* Stats+CoreDataClass.swift */,
+				FEAFE5F123009EC10058378D /* Stats+CoreDataProperties.swift */,
+				FEAFE5EC23009EC10058378D /* Venue+CoreDataClass.swift */,
+				FEAFE5ED23009EC10058378D /* Venue+CoreDataProperties.swift */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
