@@ -36,6 +36,10 @@ class FilterViewController: UITableViewController {
   lazy var moderateVenuePredicate: NSPredicate = {
     return NSPredicate(format: "%K == %@", #keyPath(Venue.priceInfo.priceCategory), "$$")
   }()
+  
+  lazy var expensiveVenuePredicate : NSPredicate = {
+    return NSPredicate(format: "%K == %@", #keyPath( Venue.priceInfo.priceCategory), "$$$")
+  }()
 
   // MARK: - View Life Cycle
   override func viewDidLoad() {
@@ -43,6 +47,7 @@ class FilterViewController: UITableViewController {
     
     populateCheapVenueCountLabel()
     populateModerateVenueCountLabel()
+    populateExpensiveVenueCountLabel()
   }
 }
 
@@ -92,6 +97,19 @@ extension FilterViewController {
       let count = countResult.first!.intValue
       let pluralized = count == 1 ? "place" : "places"
       secondPriceCategoryLabel.text = "\(count) bubble tea \(pluralized)"
+    } catch let error as NSError {
+      print("count not fetched \(error), \(error.userInfo)")
+    }
+  }
+  
+  func populateExpensiveVenueCountLabel() {
+    let fetchRequest: NSFetchRequest<Venue> = Venue.fetchRequest()
+    fetchRequest.predicate = expensiveVenuePredicate
+    
+    do {
+      let count = try coreDataStack.managedContext.count(for: fetchRequest)
+      let pluralized = count == 1 ? "place" : "places"
+      thirdPriceCategoryLabel.text = "\(count) bubble tea \(pluralized)"
     } catch let error as NSError {
       print("count not fetched \(error), \(error.userInfo)")
     }
