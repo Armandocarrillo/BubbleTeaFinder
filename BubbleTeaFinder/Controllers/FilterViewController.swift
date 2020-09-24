@@ -62,6 +62,19 @@ class FilterViewController: UITableViewController {
   lazy var hasUserTipsPredicate: NSPredicate = {
     return NSPredicate(format: "%K > 0", #keyPath(Venue.stats.tipCount))
   }()
+  
+  lazy var nameSortDescriptor: NSSortDescriptor = {
+    let compareSelector = #selector(NSString.localizedStandardCompare(_:))
+    return NSSortDescriptor(key: #keyPath(Venue.name), ascending: true, selector: compareSelector)
+  } ()
+  
+  lazy var distanceSortDescriptor: NSSortDescriptor = {
+    return NSSortDescriptor(key: #keyPath(Venue.location.distance), ascending: true)
+  }()
+  
+  lazy var priceSortDescriptor: NSSortDescriptor = {
+    return NSSortDescriptor(key: #keyPath(Venue.priceInfo.priceCategory), ascending: true)
+  }()
 
   // MARK: - View Life Cycle
   override func viewDidLoad() {
@@ -112,6 +125,17 @@ extension FilterViewController {
       selectedPredicate = walkingDistancePredicate
     case userTipsCell:
       selectedPredicate = hasUserTipsPredicate
+      
+    //Sort by section
+    case nameAZSortCell:
+      selectedSortDescriptor = nameSortDescriptor
+    case nameZASortCell:
+      selectedSortDescriptor = nameSortDescriptor.reversedSortDescriptor as? NSSortDescriptor
+    case distanceSortCell:
+      selectedSortDescriptor = distanceSortDescriptor
+    case priceSortCell:
+      selectedSortDescriptor = priceSortDescriptor
+      
     default:
       break
     }
