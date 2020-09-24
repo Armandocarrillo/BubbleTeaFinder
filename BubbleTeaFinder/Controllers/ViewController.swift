@@ -13,6 +13,8 @@ class ViewController: UIViewController {
   
   var fetchRequest: NSFetchRequest<Venue>?
   var venues: [Venue] = []
+  
+  var asyncFetchRequest: NSAsynchronousFetchRequest<Venue>?
 
   // MARK: - IBOutlets
   @IBOutlet weak var tableView: UITableView!
@@ -26,9 +28,32 @@ class ViewController: UIViewController {
     guard let model = coreDataStack.managedContext.persistentStoreCoordinator?.managedObjectModel,
           let fetchRequest = model.fetchRequestTemplate(forName: "FetchRequest") as? NSFetchRequest<Venue> else { return }
     
-    self.fetchRequest = fetchRequest*/
+    self.fetchRequest = fetchRequest
     fetchRequest = Venue.fetchRequest()
-    fetchAndReload()
+    fetchAndReload()*/
+    
+    let venueFetchRequest: NSFetchRequest<Venue> = Venue.fetchRequest()
+    fetchRequest = venueFetchRequest
+    
+    asyncFetchRequest = NSAsynchronousFetchRequest<Venue>(fetchRequest: venueFetchRequest) {
+      [unowned self] (result: NSAsynchronousFetchResult) in
+      guard let venues = result.finalResult else {
+        return
+      }
+      
+      
+      
+      self.venues = venues
+      self.tableView.reloadData()
+    }
+    
+    do {
+      guard  let asyncFetchRequest = asyncFetchRequest else { return }
+      try coreDataStack.managedContext.execute(asyncFetchRequest)
+      
+    } catch let error as NSError {
+      print("Could not fetch \(error), \(error.userInfo)")
+    }
   }
 
   // MARK: - Navigation
